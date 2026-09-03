@@ -42,6 +42,48 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
 }
 
+a,
+button,
+[role="button"],
+label[for],
+select,
+summary {
+  cursor: pointer;
+}
+
+.cursor-root {
+  display: none;
+}
+
+.cursor-cta {
+  will-change: transform, opacity;
+}
+
+@media (pointer: fine) {
+  .cursor-root {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-root {
+    display: none;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+
+  html.has-custom-cursor input,
+  html.has-custom-cursor textarea,
+  html.has-custom-cursor select {
+    cursor: text !important;
+  }
+}
+
 ::selection {
   background: var(--brand);
   color: var(--cream);

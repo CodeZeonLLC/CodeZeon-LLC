@@ -37,6 +37,7 @@ export default function Header({ variant = "overlay" }) {
         </nav>
         <Link
           href="/contact"
+          data-cursor="cta"
           className="shrink-0 border border-cream/40 bg-cream/10 px-3 py-2 text-xs font-medium text-cream backdrop-blur-sm transition-colors hover:bg-cream hover:text-brand sm:px-4 sm:text-sm"
         >
           Talk to us

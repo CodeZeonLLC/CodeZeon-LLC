@@ -72,6 +72,7 @@ export default async function ServicePage({ params }) {
               </p>
               <Link
                 href={`/contact?service=${service.slug}`}
+                data-cursor="cta"
                 className="mt-10 inline-flex bg-brand px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-brand-deep"
               >
                 Start a conversation

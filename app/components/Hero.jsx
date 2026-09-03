@@ -32,12 +32,14 @@ export default function Hero() {
           <div className="animate-rise delay-3 mt-7 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap">
             <a
               href="/contact"
+              data-cursor="cta"
               className="inline-flex min-h-12 w-full items-center justify-center bg-cream px-6 py-3 text-sm font-semibold text-brand transition-colors hover:bg-cream-dim sm:w-auto"
             >
               Start a project
             </a>
             <a
               href="#services"
+              data-cursor="cta"
               className="inline-flex min-h-12 w-full items-center justify-center border border-cream/50 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-cream/10 sm:w-auto"
             >
               See services

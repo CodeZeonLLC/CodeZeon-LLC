@@ -70,6 +70,7 @@ export default function Footer() {
             </a>
             <Link
               href="/contact"
+              data-cursor="cta"
               className="mt-6 inline-flex border border-cream/35 px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-cream hover:text-brand"
             >
               Start a project

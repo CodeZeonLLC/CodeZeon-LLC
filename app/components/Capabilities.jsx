@@ -20,7 +20,7 @@ export default function Capabilities() {
           {services.map((item, index) => (
             <li
               key={item.slug}
-              className="grid gap-4 py-8 md:grid-cols-[8rem_1fr_1.3fr] md:items-baseline md:gap-10"
+              className="grid cursor-pointer gap-4 py-8 md:grid-cols-[8rem_1fr_1.3fr] md:items-baseline md:gap-10"
             >
               <span className="font-mono text-sm text-muted">
                 0{index + 1}
@@ -34,7 +34,8 @@ export default function Capabilities() {
                 </p>
                 <Link
                   href={`#`}
-                  className="mt-4 inline-flex text-sm font-semibold text-brand transition-colors hover:text-brand-soft"
+                  data-cursor="cta"
+                  className="mt-4 inline-flex cursor-pointer text-sm font-semibold text-brand transition-colors hover:text-brand-soft"
                 >
                   {item.explore}
                   <span aria-hidden="true" className="ml-2">

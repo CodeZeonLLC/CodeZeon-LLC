@@ -27,6 +27,7 @@ export default function Contact() {
             </a>
             <Link
               href="/contact"
+              data-cursor="cta"
               className="inline-flex min-h-12 items-center bg-brand px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-brand-deep"
             >
               Contact us

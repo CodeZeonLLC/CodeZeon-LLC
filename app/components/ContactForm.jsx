@@ -136,6 +136,7 @@ export default function ContactForm({ defaultService = "" }) {
 
       <button
         type="submit"
+        data-cursor="cta"
         className="inline-flex min-h-12 w-full items-center justify-center bg-brand px-6 text-sm font-semibold text-cream transition-colors hover:bg-brand-deep sm:w-auto"
       >
         Send a brief

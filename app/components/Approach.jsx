@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function Approach() {
   return (
     <section id="approach" className="bg-brand text-cream">
-      <div className="mx-auto grid max-w-7xl lg:grid-cols-2 lg:min-h-[560px]">
-        <div className="relative min-h-[320px] lg:min-h-0">
+      <div className="shell grid lg:min-h-[560px] lg:grid-cols-2 lg:gap-16">
+        <div className="relative min-h-[320px] lg:h-full lg:min-h-0">
           <Image
             src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"
             alt="Circuit board close-up representing precise engineering"
@@ -12,10 +12,9 @@ export default function Approach() {
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          {/* <div className="absolute inset-0 bg-brand/35" /> */}
         </div>
 
-        <div className="flex flex-col justify-center px-6 py-20 lg:px-16 lg:py-28">
+        <div className="flex flex-col justify-center py-20 lg:py-28">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cream/60">
             Approach
           </p>

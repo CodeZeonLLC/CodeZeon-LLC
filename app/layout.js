@@ -1,6 +1,5 @@
 import { Syne, Manrope } from "next/font/google";
 import "./globals.css";
-import Cursor from "./components/Cursor";
 
 const syne = Syne({
   variable: "--font-display",
@@ -34,7 +33,6 @@ export default function RootLayout({ children }) {
       data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col antialiased">
-        <Cursor />
         {children}
       </body>
     </html>

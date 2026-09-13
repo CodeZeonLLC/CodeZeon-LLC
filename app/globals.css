@@ -34,12 +34,107 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+.shell {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  .shell {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shell {
+    padding-inline: 2.5rem;
+  }
+}
+
+.hero-frame {
+  position: relative;
+  min-height: clamp(600px, 90vh, 900px);
+  overflow: hidden;
+  background-color: var(--brand);
+}
+
+.hero-media,
+.hero-media img {
+  object-fit: cover;
+  object-position: center 30%;
+  animation: hero-drift 28s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-media,
+  .hero-media img {
+    animation: none;
+  }
+}
+
+.hero-shade-top {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  height: 120px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--brand-deep) 82%, transparent),
+    transparent
+  );
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: clamp(600px, 90vh, 900px);
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-heading {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+}
+
+@media (min-width: 1440px) {
+  .hero-media,
+  .hero-media img {
+    object-position: 48% 32%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero-media,
+  .hero-media img {
+    object-position: 50% 34%;
+  }
+}
+
+@media (min-width: 2560px) {
+  .hero-media,
+  .hero-media img {
+    object-position: 50% 38%;
+  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), system-ui, sans-serif;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' stroke='%23fff' stroke-width='1.25' stroke-linejoin='round' d='M4 2.5v16.2l4.6-4.4 3.1 7.3 2.4-1-3.1-7.3H19z'/%3E%3C/svg%3E")
+      3 2,
+    auto;
 }
 
 a,
@@ -47,41 +142,16 @@ button,
 [role="button"],
 label[for],
 select,
-summary {
-  cursor: pointer;
+summary,
+[href] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='28' viewBox='0 0 24 28'%3E%3Cpath fill='%23000' stroke='%23fff' stroke-width='1.25' stroke-linejoin='round' d='M8.6 1.8c.8 0 1.4.6 1.4 1.4v8.4h.2V6.6c0-.8.7-1.4 1.5-1.4s1.4.6 1.4 1.4v5.2h.3V7.8c0-.8.6-1.4 1.4-1.4.8 0 1.4.6 1.4 1.4v4.8h.2V9c0-.8.7-1.4 1.5-1.4.8 0 1.4.6 1.4 1.4v8.6c0 3.8-2.3 6.4-6.6 6.4-2.8 0-4.7-1-6.4-3.6L5.2 16c-.5-.7-.3-1.7.5-2.2.7-.4 1.6-.3 2.1.5l1 1.4V3.2c0-.8.6-1.4 1.4-1.4z'/%3E%3C/svg%3E")
+      7 1,
+    pointer;
 }
 
-.cursor-root {
-  display: none;
-}
-
-.cursor-cta {
-  will-change: transform, opacity;
-}
-
-@media (pointer: fine) {
-  .cursor-root {
-    display: block;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cursor-root {
-    display: none;
-  }
-}
-
-@media (hover: hover) and (pointer: fine) {
-  html.has-custom-cursor,
-  html.has-custom-cursor * {
-    cursor: none !important;
-  }
-
-  html.has-custom-cursor input,
-  html.has-custom-cursor textarea,
-  html.has-custom-cursor select {
-    cursor: text !important;
-  }
+input,
+textarea {
+  cursor: text;
 }
 
 ::selection {
@@ -115,6 +185,16 @@ summary {
   }
   to {
     transform: scale(1);
+  }
+}
+
+@keyframes hero-drift {
+  0%,
+  100% {
+    transform: scale(1.05) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.1) translate3d(-1.4%, -0.8%, 0);
   }
 }
 

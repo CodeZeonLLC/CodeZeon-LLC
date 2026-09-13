@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-cream px-6 py-24 lg:px-10 lg:py-32">
-      <div className="mx-auto max-w-7xl border-t border-line pt-16">
+    <section id="contact" className="bg-cream py-24 lg:py-32">
+      <div className="shell border-t border-line pt-16">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-end">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
@@ -27,7 +27,6 @@ export default function Contact() {
             </a>
             <Link
               href="/contact"
-              data-cursor="cta"
               className="inline-flex min-h-12 items-center bg-brand px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-brand-deep"
             >
               Contact us

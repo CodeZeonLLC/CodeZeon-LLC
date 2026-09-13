@@ -33,7 +33,7 @@ export default async function ContactPage({ searchParams }) {
             <div className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand/55 to-brand/30" />
           </div>
 
-          <div className="relative z-10 mx-auto flex min-h-[56svh] max-w-7xl flex-col justify-end px-4 pb-12 pt-28 sm:min-h-[60svh] sm:px-6 sm:pb-16 sm:pt-32 lg:px-10 lg:pb-20">
+          <div className="shell relative z-10 flex min-h-[56svh] flex-col justify-end pb-12 pt-28 sm:min-h-[60svh] sm:pb-16 sm:pt-32 lg:pb-20">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cream/60">
               Contact
             </p>
@@ -48,8 +48,8 @@ export default async function ContactPage({ searchParams }) {
           </div>
         </section>
 
-        <section className="bg-cream px-4 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
-          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
+        <section className="bg-cream py-16 sm:py-20 lg:py-28">
+          <div className="shell grid gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
                 Brief

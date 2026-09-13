@@ -5,10 +5,10 @@ export default function Capabilities() {
   return (
     <section
       id="services"
-      className="relative bg-cream px-6 py-24 lg:px-10 lg:py-32"
+      className="relative bg-cream py-24 lg:py-32"
     >
       <div className="pointer-events-none absolute inset-0 grid-texture opacity-60" />
-      <div className="relative mx-auto max-w-7xl">
+      <div className="shell relative">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
           Services
         </p>
@@ -20,22 +20,26 @@ export default function Capabilities() {
           {services.map((item, index) => (
             <li
               key={item.slug}
-              className="grid cursor-pointer gap-4 py-8 md:grid-cols-[8rem_1fr_1.3fr] md:items-baseline md:gap-10"
+              className="grid gap-4 py-8 md:grid-cols-[8rem_1fr_1.3fr] md:items-baseline md:gap-10"
             >
               <span className="font-mono text-sm text-muted">
                 0{index + 1}
               </span>
               <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold text-brand sm:text-2xl">
-                {item.title}
+                <Link
+                  href={`/services/${item.slug}`}
+                  className="transition-colors hover:text-brand-soft"
+                >
+                  {item.title}
+                </Link>
               </h3>
               <div>
                 <p className="max-w-xl text-base leading-relaxed text-muted">
                   {item.short}
                 </p>
                 <Link
-                  href={`#`}
-                  data-cursor="cta"
-                  className="mt-4 inline-flex cursor-pointer text-sm font-semibold text-brand transition-colors hover:text-brand-soft"
+                  href={`/services/${item.slug}`}
+                  className="mt-4 inline-flex text-sm font-semibold text-brand transition-colors hover:text-brand-soft"
                 >
                   {item.explore}
                   <span aria-hidden="true" className="ml-2">

@@ -1,5 +1,6 @@
 import { Syne, Manrope } from "next/font/google";
 import "./globals.css";
+import Motion from "./components/Motion";
 
 const syne = Syne({
   variable: "--font-display",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col antialiased">
         {children}
+        <Motion />
       </body>
     </html>
   );

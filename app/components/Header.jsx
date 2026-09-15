@@ -6,12 +6,14 @@ import { useEffect, useState } from "react";
 const links = [
   { href: "/services", label: "Services" },
   { href: "/#approach", label: "Approach" },
+  { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
 
 export default function Header({ variant = "overlay" }) {
   const [scrolled, setScrolled] = useState(false);
-  const solid = variant === "solid" || scrolled;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const solid = variant === "solid" || scrolled || menuOpen;
 
   useEffect(() => {
     if (variant === "solid") {
@@ -27,6 +29,17 @@ export default function Header({ variant = "overlay" }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, [variant]);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  function closeMenu() {
+    setMenuOpen(false);
+  }
+
   return (
     <header
       className={
@@ -38,11 +51,16 @@ export default function Header({ variant = "overlay" }) {
       <div className="shell flex items-center justify-between gap-3 py-4 sm:py-6">
         <Link
           href="/"
+          onClick={closeMenu}
           className="min-w-0 shrink font-[family-name:var(--font-display)] text-base font-bold tracking-tight text-cream sm:text-lg md:text-xl"
         >
           CodeZeon-LLC
         </Link>
-        <nav className="hidden items-center gap-8 md:flex">
+
+        <nav
+          className="hidden items-center gap-8 md:flex"
+          aria-label="Main navigation"
+        >
           {links.map((link) => (
             <Link
               key={link.href}
@@ -53,17 +71,64 @@ export default function Header({ variant = "overlay" }) {
             </Link>
           ))}
         </nav>
-        <Link
-          href="/contact"
-          className={
-            solid
-              ? "shrink-0 border border-cream/40 bg-cream/10 px-3 py-2 text-xs font-medium text-cream transition-colors hover:bg-cream hover:text-brand sm:px-4 sm:text-sm"
-              : "shrink-0 border border-cream/40 bg-cream/10 px-3 py-2 text-xs font-medium text-cream backdrop-blur-sm transition-colors hover:bg-cream hover:text-brand sm:px-4 sm:text-sm"
-          }
-        >
-          Talk to us
-        </Link>
+
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <Link href="/contact" className="btn btn-header hidden sm:inline-flex">
+            Talk to us
+          </Link>
+
+          <button
+            type="button"
+            className="inline-flex h-10 w-10 items-center justify-center border border-cream/40 text-cream transition-colors hover:bg-cream/10 md:hidden"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span className="sr-only">{menuOpen ? "Close menu" : "Open menu"}</span>
+            {menuOpen ? (
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <path d="M6 6l12 12M18 6 6 18" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
+
+      {menuOpen ? (
+        <nav
+          id="mobile-nav"
+          className="border-t border-cream/15 bg-brand md:hidden"
+          aria-label="Mobile navigation"
+        >
+          <ul className="shell flex flex-col gap-1 py-4">
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="block py-3 text-base font-medium text-cream/90 transition-colors hover:text-cream"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li className="mt-2 border-t border-cream/15 pt-4">
+              <Link
+                href="/contact"
+                onClick={closeMenu}
+                className="btn btn-primary-inverse w-full"
+              >
+                Talk to us
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      ) : null}
     </header>
   );
 }

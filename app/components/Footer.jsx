@@ -66,7 +66,7 @@ export default function Footer() {
                 <li key={item.slug}>
                   <Link
                     href={`/services/${item.slug}`}
-                    className="text-sm text-cream/80 transition-colors hover:text-cream"
+                    className="link-underline text-sm text-cream/80 hover:text-cream"
                   >
                     {item.title}
                   </Link>
@@ -84,7 +84,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-cream/80 transition-colors hover:text-cream"
+                    className="link-underline text-sm text-cream/80 hover:text-cream"
                   >
                     {item.label}
                   </Link>
@@ -99,14 +99,11 @@ export default function Footer() {
             </p>
             <a
               href="mailto:hello@codezeon.com"
-              className="mt-5 block text-sm text-cream/80 transition-colors hover:text-cream"
+              className="link-underline mt-5 block text-sm text-cream/80 hover:text-cream"
             >
               hello@codezeon.com
             </a>
-            <Link
-              href="/contact"
-              className="mt-6 inline-flex border border-cream/35 px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-cream hover:text-brand"
-            >
+            <Link href="/contact" className="btn btn-primary-inverse mt-6">
               Start a project
             </Link>
           </div>
@@ -119,25 +116,25 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <Link
               href="/privacy"
-              className="text-sm text-cream/70 transition-colors hover:text-cream"
+              className="link-underline text-sm text-cream/70 hover:text-cream"
             >
               Privacy policy
             </Link>
             <Link
               href="/terms"
-              className="text-sm text-cream/70 transition-colors hover:text-cream"
+              className="link-underline text-sm text-cream/70 hover:text-cream"
             >
               Terms
             </Link>
             <Link
               href="/faq"
-              className="text-sm text-cream/70 transition-colors hover:text-cream"
+              className="link-underline text-sm text-cream/70 hover:text-cream"
             >
               FAQ
             </Link>
             <Link
               href="/sitemap"
-              className="text-sm text-cream/70 transition-colors hover:text-cream"
+              className="link-underline text-sm text-cream/70 hover:text-cream"
             >
               Sitemap
             </Link>

@@ -2,7 +2,7 @@
 
 Next.js project with JSX and Tailwind CSS.
 
-## Getting Started
+## Getting Started!
 
 ```bash
 cd CodeZeon-LLC

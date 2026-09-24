@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { getService, services } from "../../data/services";
+import { whyChooseUs } from "../../data/whyChooseUs";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -47,7 +48,7 @@ export default async function ServicePage({ params }) {
               className="object-cover"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand/70 to-brand/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand/80 to-brand/55" />
           </div>
 
           <div className="shell relative z-10 flex min-h-[56svh] flex-col justify-end pb-12 pt-28 sm:min-h-[60svh] sm:pb-16 sm:pt-32 lg:pb-20">
@@ -65,11 +66,9 @@ export default async function ServicePage({ params }) {
         </section>
 
         <section className="bg-cream py-20 lg:py-28">
-          <div className="shell grid gap-16 lg:grid-cols-[1.2fr_1fr] lg:gap-24">
-            <div>
-              <p className="max-w-2xl text-lg leading-relaxed text-muted">
-                {service.body}
-              </p>
+          <div className="shell">
+            <div className="max-w-2xl">
+              <p className="text-lg leading-relaxed text-muted">{service.body}</p>
               <Link
                 href={`/contact?service=${service.slug}`}
                 className="mt-10 inline-flex bg-brand px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-brand-deep"
@@ -78,23 +77,67 @@ export default async function ServicePage({ params }) {
               </Link>
             </div>
 
-            <ol className="space-y-8 border-t border-line pt-8 lg:border-t-0 lg:pt-0">
-              {service.points.map((point, index) => (
-                <li key={point.title} className="grid grid-cols-[3.5rem_1fr] gap-4">
+            <h2 className="mt-16 font-[family-name:var(--font-display)] text-2xl font-semibold text-brand sm:mt-20 sm:text-3xl">
+              What we offer
+            </h2>
+            <ul className="mt-10 grid gap-8 sm:grid-cols-2">
+              {service.groups.map((group, index) => (
+                <li key={group.slug} className="border-t border-line pt-6">
                   <span className="font-mono text-sm text-muted">
                     0{index + 1}
                   </span>
-                  <div>
-                    <h2 className="font-[family-name:var(--font-display)] text-lg font-semibold text-brand">
-                      {point.title}
-                    </h2>
-                    <p className="mt-1 text-sm leading-relaxed text-muted">
-                      {point.text}
-                    </p>
-                  </div>
+                  <h3 className="mt-3 font-[family-name:var(--font-display)] text-xl font-semibold text-brand sm:text-2xl">
+                    <Link
+                      href={`/services/${service.slug}/${group.slug}`}
+                      className="transition-colors hover:text-brand-soft"
+                    >
+                      {group.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-muted">
+                    {group.short}
+                  </p>
+                  <p className="mt-2 text-sm text-muted">
+                    {group.offerings.length} services
+                  </p>
+                  <Link
+                    href={`/services/${service.slug}/${group.slug}`}
+                    className="mt-4 inline-flex text-sm font-semibold text-brand transition-colors hover:text-brand-soft"
+                  >
+                    Explore {group.title}
+                    <span aria-hidden="true" className="ml-2">
+                      →
+                    </span>
+                  </Link>
                 </li>
               ))}
-            </ol>
+            </ul>
+          </div>
+        </section>
+
+        <section className="bg-brand py-16 text-cream sm:py-20 lg:py-28">
+          <div className="shell">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cream/60">
+              Why Choose Us
+            </p>
+            <h2 className="mt-4 max-w-2xl font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight">
+              What sets the partnership apart.
+            </h2>
+            <ul className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-14">
+              {whyChooseUs.map((item, index) => (
+                <li key={item.title} className="border-t border-cream/15 pt-6">
+                  <span className="font-mono text-sm text-cream/50">
+                    0{index + 1}
+                  </span>
+                  <h3 className="mt-3 font-[family-name:var(--font-display)] text-lg font-semibold text-cream">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-cream/75">
+                    {item.text}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -103,7 +146,7 @@ export default async function ServicePage({ params }) {
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
               More from CodeZeon
             </p>
-            <ul className="mt-8 grid gap-8 sm:grid-cols-3">
+            <ul className="mt-8 grid gap-8 sm:grid-cols-2">
               {others.map((item) => (
                 <li key={item.slug}>
                   <Link

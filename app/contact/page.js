@@ -2,7 +2,8 @@ import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
-import { getService } from "../data/services";
+import { contact } from "../data/contact";
+import { getService, getServiceOfferings } from "../data/services";
 
 export const metadata = {
   title: "Contact — CodeZeon-LLC",
@@ -13,8 +14,11 @@ export const metadata = {
 export default async function ContactPage({ searchParams }) {
   const params = await searchParams;
   const requested = typeof params.service === "string" ? params.service : "";
-  const matched = getService(requested);
-  const defaultService = matched?.title ?? "";
+  const matchedCategory = getService(requested);
+  const matchedOffering = getServiceOfferings().find(
+    (item) => item.title === requested,
+  );
+  const defaultService = matchedOffering?.title ?? matchedCategory?.title ?? "";
 
   return (
     <>
@@ -68,10 +72,10 @@ export default async function ContactPage({ searchParams }) {
                   Email
                 </p>
                 <a
-                  href="mailto:hello@codezeon.com"
+                  href={`mailto:${contact.email}`}
                   className="mt-3 block font-[family-name:var(--font-display)] text-xl font-semibold text-brand transition-colors hover:text-brand-soft sm:text-2xl"
                 >
-                  hello@codezeon.com
+                  {contact.email}
                 </a>
                 <p className="mt-3 text-sm leading-relaxed text-muted">
                   Prefer to skip the form? Send a short note — goals, timing,
@@ -84,30 +88,28 @@ export default async function ContactPage({ searchParams }) {
                   Phone
                 </p>
                 <a
-                  href="tel:+13025550184"
+                  href={contact.phoneHref}
                   className="mt-3 block font-[family-name:var(--font-display)] text-xl font-semibold text-brand transition-colors hover:text-brand-soft"
                 >
-                  +1 (302) 555-0184
+                  {contact.phoneDisplay}
                 </a>
-                <p className="mt-2 text-sm text-muted">
-                  Weekdays, 9:00–18:00 ET
-                </p>
+                <p className="mt-2 text-sm text-muted">{contact.hours}</p>
               </div>
 
               <div className="border-t border-line pt-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-                  Studio
+                  Business address
                 </p>
                 <address className="mt-3 not-italic">
                   <p className="font-[family-name:var(--font-display)] text-base font-semibold text-brand">
                     CodeZeon-LLC
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-muted">
-                    418 N Market Street
-                    <br />
-                    Suite 210
-                    <br />
-                    Wilmington, DE 19801
+                    {contact.addressLines.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
                   </p>
                 </address>
               </div>

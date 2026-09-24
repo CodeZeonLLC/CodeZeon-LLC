@@ -11,6 +11,7 @@ export const metadata = {
 
 const company = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
   { href: "/#services", label: "Services overview" },
   { href: "/#approach", label: "Approach" },
   { href: "/#contact", label: "Contact on the homepage" },
@@ -85,13 +86,25 @@ export default function SitemapPage() {
                   </Link>
                 </li>
                 {services.map((item) => (
-                  <li key={item.slug}>
+                  <li key={item.slug} className="space-y-2">
                     <Link
                       href={`/services/${item.slug}`}
                       className="text-base text-ink transition-colors hover:text-brand"
                     >
                       {item.title}
                     </Link>
+                    <ul className="space-y-2 border-l border-line pl-4">
+                      {item.groups.map((group) => (
+                        <li key={group.slug}>
+                          <Link
+                            href={`/services/${item.slug}/${group.slug}`}
+                            className="text-sm text-muted transition-colors hover:text-brand"
+                          >
+                            {group.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </li>
                 ))}
               </ul>

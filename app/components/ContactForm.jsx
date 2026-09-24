@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { services } from "../data/services";
+import { contact } from "../data/contact";
 
 const fieldClass =
   "mt-2 w-full border border-line bg-cream px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-muted/70 focus:border-brand";
@@ -34,7 +35,7 @@ export default function ContactForm({ defaultService = "" }) {
         .join("\n"),
     );
 
-    window.location.href = `mailto:hello@codezeon.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
     setStatus("sent");
   }
 
@@ -50,10 +51,10 @@ export default function ContactForm({ defaultService = "" }) {
         <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">
           If nothing opened, write us directly at{" "}
           <a
-            href="mailto:hello@codezeon.com"
+            href={`mailto:${contact.email}`}
             className="font-semibold text-brand hover:text-brand-soft"
           >
-            hello@codezeon.com
+            {contact.email}
           </a>
           . We reply within one business day.
         </p>
@@ -114,10 +115,17 @@ export default function ContactForm({ defaultService = "" }) {
             className={`${fieldClass} appearance-none`}
           >
             <option value="">Tell us in the note</option>
-            {services.map((item) => (
-              <option key={item.slug} value={item.title}>
-                {item.title}
-              </option>
+            {services.map((category) => (
+              <optgroup key={category.slug} label={category.title}>
+                <option value={category.title}>{category.title}</option>
+                {category.groups.flatMap((group) =>
+                  group.offerings.map((offering) => (
+                    <option key={offering.title} value={offering.title}>
+                      {offering.title}
+                    </option>
+                  )),
+                )}
+              </optgroup>
             ))}
           </select>
         </label>

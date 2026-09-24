@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const links = [
   { href: "/services", label: "Services" },
   { href: "/#approach", label: "Approach" },
+  { href: "/about", label: "About" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
@@ -48,13 +50,20 @@ export default function Header({ variant = "overlay" }) {
           : "fixed inset-x-0 top-0 z-30 bg-transparent transition-[background-color,box-shadow] duration-300"
       }
     >
-      <div className="shell flex items-center justify-between gap-3 py-4 sm:py-6">
+      <div className="shell flex items-center justify-between gap-3 py-3 sm:py-4">
         <Link
           href="/"
           onClick={closeMenu}
-          className="min-w-0 shrink font-[family-name:var(--font-display)] text-base font-bold tracking-tight text-cream sm:text-lg md:text-xl"
+          className="relative block h-11 w-[7.5rem] shrink-0 sm:h-12 sm:w-36"
         >
-          CodeZeon-LLC
+          <Image
+            src="/logo-white.png"
+            alt="CodeZeon LLC"
+            fill
+            priority
+            className="object-contain object-left mix-blend-screen"
+            sizes="144px"
+          />
         </Link>
 
         <nav

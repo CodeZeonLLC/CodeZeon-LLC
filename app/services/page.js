@@ -2,12 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { services } from "../data/services";
+import { services, countOfferings } from "../data/services";
 
 export const metadata = {
   title: "Services — CodeZeon-LLC",
   description:
-    "Software, digital experience, cyber security, and technology counsel—four practices, one standard of delivery.",
+    "Creative and digital services plus business technology systems—two practices, one standard of delivery.",
 };
 
 export default function ServicesPage() {
@@ -33,13 +33,13 @@ export default function ServicesPage() {
               Services
             </p>
             <h1 className="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-[clamp(2rem,8vw,3.75rem)] font-extrabold leading-[1.05] tracking-tight text-cream">
-              Four practices. One standard of delivery.
+              Creative & digital. Business technology.
             </h1>
             <div className="mt-5 h-px w-16 bg-cream/70 sm:w-24" />
             <p className="mt-6 max-w-xl text-sm leading-relaxed text-cream/80 sm:text-base">
-              Software, design, security, and counsel—each run to the same bar.
-              Pick the practice that matches the work, then we choose the
-              engagement that fits.
+              Brand, product, and growth work on one side. Operational systems
+              that run the business on the other. Same delivery standard for
+              both.
             </p>
           </div>
         </section>
@@ -69,6 +69,9 @@ export default function ServicesPage() {
                     <p className="mt-3 max-w-md text-base leading-relaxed text-muted">
                       {item.short}
                     </p>
+                    <p className="mt-3 text-sm text-muted">
+                      {countOfferings(item)} services
+                    </p>
                     <span className="mt-4 inline-flex text-sm font-semibold text-brand">
                       {item.explore}
                       <span aria-hidden="true" className="ml-2">
@@ -89,7 +92,7 @@ export default function ServicesPage() {
                 Next
               </p>
               <h2 className="mt-3 max-w-xl font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                Not sure which practice comes first?
+                Not sure which service comes first?
               </h2>
               <p className="mt-3 max-w-lg text-base leading-relaxed text-muted">
                 Tell us the outcome. We will recommend the work—and whether it

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { services } from "../data/services";
 import { social } from "../data/social";
@@ -23,6 +24,7 @@ const socialIcons = {
 const nav = [
   { href: "/services", label: "Services" },
   { href: "/#approach", label: "Approach" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
   { href: "/faq", label: "FAQ" },
 ];
@@ -33,9 +35,18 @@ export default function Footer() {
       <div className="shell py-16 lg:py-20">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-16">
           <div className="sm:col-span-2 lg:col-span-1">
-            <p className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight">
-              CodeZeon-LLC
-            </p>
+            <Link
+              href="/"
+              className="relative block h-16 w-44"
+            >
+              <Image
+                src="/logo-white.png"
+                alt="CodeZeon LLC"
+                fill
+                className="object-contain object-left mix-blend-screen"
+                sizes="176px"
+              />
+            </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-cream/70">
               Software, design, security, and counsel for teams that need
               technology to serve the business.
@@ -98,10 +109,10 @@ export default function Footer() {
               Contact
             </p>
             <a
-              href="mailto:hello@codezeon.com"
+              href="mailto:info@codezeon.com"
               className="link-underline mt-5 block text-sm text-cream/80 hover:text-cream"
             >
-              hello@codezeon.com
+              info@codezeon.com
             </a>
             <Link href="/contact" className="btn btn-primary-inverse mt-6">
               Start a project

@@ -1,21 +1,11 @@
 import Link from "next/link";
-import {
-  LuCodeXml,
-  LuPalette,
-  LuShieldCheck,
-  LuChartColumnIncreasing,
-} from "react-icons/lu";
 import { services } from "../data/services";
 
-const iconClass = "h-6 w-6 sm:h-7 sm:w-7";
-
-const icons = {
-  "software-solutions": <LuCodeXml className={iconClass} aria-hidden="true" />,
-  "digital-multimedia": <LuPalette className={iconClass} aria-hidden="true" />,
-  "cyber-security": <LuShieldCheck className={iconClass} aria-hidden="true" />,
-  "technology-consulting": (
-    <LuChartColumnIncreasing className={iconClass} aria-hidden="true" />
-  ),
+const summaries = {
+  "creative-and-digital":
+    "Brand, design, and digital builds that keep your presence consistent and sharp.",
+  "business-technology":
+    "Systems built around how your organization really runs.",
 };
 
 export default function Capabilities() {
@@ -30,53 +20,65 @@ export default function Capabilities() {
           Services
         </p>
         <h2
-          className="mt-4 max-w-2xl font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-ink sm:text-4xl md:text-5xl"
+          className="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-ink sm:text-4xl md:text-5xl"
           data-reveal-child
           style={{ "--reveal-delay": 80 }}
         >
-          Four practices. One standard of delivery.
+          Creative and digital. Business technology.
         </h2>
+        <p
+          className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
+          data-reveal-child
+          style={{ "--reveal-delay": 140 }}
+        >
+          Two service lines, one team. Each covers the work you will actually
+          ask us for.
+        </p>
 
-        <ul className="mt-16 divide-y divide-line border-y border-line">
+        <ul className="mt-14 grid gap-6 lg:grid-cols-2 lg:gap-8">
           {services.map((item, index) => (
             <li
               key={item.slug}
-              className="service-row group border-l-[3px] border-l-brand"
+              className="flex flex-col border border-line bg-cream-dim/50 p-7 sm:p-8"
               data-reveal-child
-              style={{ "--reveal-delay": 140 + index * 100 }}
+              style={{ "--reveal-delay": 200 + index * 100 }}
             >
-              <div className="service-row-inner">
-                <span className="service-row-num font-mono text-base font-bold text-brand sm:text-lg">
-                  0{index + 1}
+              <h3 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-brand">
+                <Link
+                  href={`/services/${item.slug}`}
+                  className="transition-colors hover:text-brand-soft"
+                >
+                  {item.slug === "creative-and-digital"
+                    ? "Creative and Digital"
+                    : "Business Technology"}
+                </Link>
+              </h3>
+              <p className="mt-3 text-base leading-relaxed text-muted">
+                {summaries[item.slug]}
+              </p>
+
+              <ul className="mt-8 flex flex-wrap gap-2">
+                {item.groups.map((group) => (
+                  <li key={group.slug}>
+                    <Link
+                      href={`/services/${item.slug}/${group.slug}`}
+                      className="inline-flex border border-line px-3 py-1.5 text-sm text-ink transition-colors hover:border-brand hover:text-brand"
+                    >
+                      {group.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <Link
+                href={`/services/${item.slug}`}
+                className="link-underline mt-8 inline-flex text-sm font-semibold text-brand"
+              >
+                {item.explore}
+                <span aria-hidden="true" className="ml-2">
+                  →
                 </span>
-
-                <h3 className="service-row-title font-[family-name:var(--font-display)] text-xl font-semibold leading-snug text-brand sm:text-2xl">
-                  <Link
-                    href={`/services/${item.slug}`}
-                    className="inline-flex items-start gap-3 transition-colors hover:text-brand-soft"
-                  >
-                    <span className="mt-0.5 inline-flex shrink-0 text-brand">
-                      {icons[item.slug]}
-                    </span>
-                    <span>{item.title}</span>
-                  </Link>
-                </h3>
-
-                <div className="service-row-copy">
-                  <p className="text-base leading-relaxed text-muted">
-                    {item.short}
-                  </p>
-                  <Link
-                    href={`/services/${item.slug}`}
-                    className="link-underline mt-5 inline-flex text-sm font-semibold text-brand transition-colors duration-300 ease-out group-hover:text-brand-soft hover:text-brand-soft"
-                  >
-                    {item.explore}
-                    <span aria-hidden="true" className="ml-2">
-                      →
-                    </span>
-                  </Link>
-                </div>
-              </div>
+              </Link>
             </li>
           ))}
         </ul>

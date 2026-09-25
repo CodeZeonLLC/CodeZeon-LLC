@@ -80,35 +80,22 @@ export default async function ServicePage({ params }) {
             <h2 className="mt-16 font-[family-name:var(--font-display)] text-2xl font-semibold text-brand sm:mt-20 sm:text-3xl">
               What we offer
             </h2>
-            <ul className="mt-10 grid gap-8 sm:grid-cols-2">
-              {service.groups.map((group, index) => (
-                <li key={group.slug} className="border-t border-line pt-6">
-                  <span className="font-mono text-sm text-muted">
-                    0{index + 1}
-                  </span>
-                  <h3 className="mt-3 font-[family-name:var(--font-display)] text-xl font-semibold text-brand sm:text-2xl">
-                    <Link
-                      href={`/services/${service.slug}/${group.slug}`}
-                      className="transition-colors hover:text-brand-soft"
-                    >
-                      {group.title}
-                    </Link>
-                  </h3>
-                  <p className="mt-3 text-base leading-relaxed text-muted">
-                    {group.short}
+            <ul className="mt-8 border-t border-line">
+              {service.offerings.map((item) => (
+                <li
+                  key={item.title}
+                  className="grid gap-1 border-b border-line py-4 sm:grid-cols-[minmax(0,16rem)_1fr] sm:gap-10 sm:py-5"
+                >
+                  <p className="flex items-start gap-2 text-base font-medium text-brand">
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"
+                    />
+                    {item.title}
                   </p>
-                  <p className="mt-2 text-sm text-muted">
-                    {group.offerings.length} services
+                  <p className="pl-3.5 text-sm leading-relaxed text-muted sm:pl-0">
+                    {item.text}
                   </p>
-                  <Link
-                    href={`/services/${service.slug}/${group.slug}`}
-                    className="mt-4 inline-flex text-sm font-semibold text-brand transition-colors hover:text-brand-soft"
-                  >
-                    Explore {group.title}
-                    <span aria-hidden="true" className="ml-2">
-                      →
-                    </span>
-                  </Link>
                 </li>
               ))}
             </ul>

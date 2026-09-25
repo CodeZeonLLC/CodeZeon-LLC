@@ -58,14 +58,11 @@ export default function Capabilities() {
               </p>
 
               <ul className="mt-8 flex flex-wrap gap-2">
-                {item.groups.map((group) => (
-                  <li key={group.slug}>
-                    <Link
-                      href={`/services/${item.slug}/${group.slug}`}
-                      className="inline-flex border border-line px-3 py-1.5 text-sm text-ink transition-colors hover:border-brand hover:text-brand"
-                    >
-                      {group.title}
-                    </Link>
+                {item.tags.map((tag) => (
+                  <li key={tag}>
+                    <span className="inline-flex border border-line px-3 py-1.5 text-sm text-ink">
+                      {tag}
+                    </span>
                   </li>
                 ))}
               </ul>

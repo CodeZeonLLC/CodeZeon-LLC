@@ -86,25 +86,13 @@ export default function SitemapPage() {
                   </Link>
                 </li>
                 {services.map((item) => (
-                  <li key={item.slug} className="space-y-2">
+                  <li key={item.slug}>
                     <Link
                       href={`/services/${item.slug}`}
                       className="text-base text-ink transition-colors hover:text-brand"
                     >
                       {item.title}
                     </Link>
-                    <ul className="space-y-2 border-l border-line pl-4">
-                      {item.groups.map((group) => (
-                        <li key={group.slug}>
-                          <Link
-                            href={`/services/${item.slug}/${group.slug}`}
-                            className="text-sm text-muted transition-colors hover:text-brand"
-                          >
-                            {group.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
                   </li>
                 ))}
               </ul>

@@ -118,13 +118,11 @@ export default function ContactForm({ defaultService = "" }) {
             {services.map((category) => (
               <optgroup key={category.slug} label={category.title}>
                 <option value={category.title}>{category.title}</option>
-                {category.groups.flatMap((group) =>
-                  group.offerings.map((offering) => (
-                    <option key={offering.title} value={offering.title}>
-                      {offering.title}
-                    </option>
-                  )),
-                )}
+                {category.offerings.map((offering) => (
+                  <option key={offering.title} value={offering.title}>
+                    {offering.title}
+                  </option>
+                ))}
               </optgroup>
             ))}
           </select>

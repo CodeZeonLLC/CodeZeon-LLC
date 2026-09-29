@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { getService, services } from "../../data/services";
 import { whyChooseUs } from "../../data/whyChooseUs";
+import OfferingGrid from "../../components/OfferingGrid";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -80,25 +81,7 @@ export default async function ServicePage({ params }) {
             <h2 className="mt-16 font-[family-name:var(--font-display)] text-2xl font-semibold text-brand sm:mt-20 sm:text-3xl">
               What we offer
             </h2>
-            <ul className="mt-8 border-t border-line">
-              {service.offerings.map((item) => (
-                <li
-                  key={item.title}
-                  className="grid gap-1 border-b border-line py-4 sm:grid-cols-[minmax(0,16rem)_1fr] sm:gap-10 sm:py-5"
-                >
-                  <p className="flex items-start gap-2 text-base font-medium text-brand">
-                    <span
-                      aria-hidden="true"
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"
-                    />
-                    {item.title}
-                  </p>
-                  <p className="pl-3.5 text-sm leading-relaxed text-muted sm:pl-0">
-                    {item.text}
-                  </p>
-                </li>
-              ))}
-            </ul>
+            <OfferingGrid offerings={service.offerings} />
           </div>
         </section>
 

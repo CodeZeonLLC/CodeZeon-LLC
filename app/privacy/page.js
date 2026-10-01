@@ -1,12 +1,14 @@
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { buildPageMetadata } from "../data/site";
 
-export const metadata = {
-  title: "Privacy Policy — CodeZeon-LLC",
+export const metadata = buildPageMetadata({
+  title: "Privacy Policy",
   description:
     "How Codezeon LLC collects, uses, discloses, stores, and protects personal information when you visit our website, contact us, or work with us.",
-};
+  path: "/privacy",
+});
 
 const sections = [
   {
@@ -421,7 +423,7 @@ const sections = [
           "Privacy Contact: Privacy Team",
           "Email: info@codezeon.com",
           "Website: https://codezeon.com",
-          "Business Address: 1334 Mile Post Drive",
+          "Business Address: CodeZeon LLC, 1334 Mile Post Drive, Georgia, USA.",
         ],
         email: "info@codezeon.com",
         website: "https://codezeon.com",

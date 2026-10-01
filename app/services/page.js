@@ -3,12 +3,14 @@ import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { services, countOfferings } from "../data/services";
+import { buildPageMetadata } from "../data/site";
 
-export const metadata = {
-  title: "Services — CodeZeon-LLC",
+export const metadata = buildPageMetadata({
+  title: "Services",
   description:
-    "Creative and digital services plus business technology systems—two practices, one standard of delivery.",
-};
+    "Creative & Digital. Business Technology. Brand, product, and growth work on one side. Operational systems that run the business on the other.",
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (
@@ -33,12 +35,12 @@ export default function ServicesPage() {
               Services
             </p>
             <h1 className="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-[clamp(2rem,8vw,3.75rem)] font-extrabold leading-[1.05] tracking-tight text-cream">
-              Creative & digital. Business technology.
+              Creative & Digital. Business Technology.
             </h1>
             <div className="mt-5 h-px w-16 bg-cream/70 sm:w-24" />
             <p className="mt-6 max-w-xl text-sm leading-relaxed text-cream/80 sm:text-base">
               Brand, product, and growth work on one side. Operational systems
-              that run the business on the other. Same delivery standard for
+              that run the business on the other. The same delivery standard for
               both.
             </p>
           </div>

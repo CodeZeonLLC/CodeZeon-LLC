@@ -9,34 +9,46 @@ const fieldClass =
 
 export default function ContactForm({ defaultService = "" }) {
   const [status, setStatus] = useState("idle");
+  const [error, setError] = useState("");
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const name = String(data.get("name") || "").trim();
-    const email = String(data.get("email") || "").trim();
-    const company = String(data.get("company") || "").trim();
-    const service = String(data.get("service") || "").trim();
-    const message = String(data.get("message") || "").trim();
+    setError("");
+    setStatus("sending");
 
-    const subject = encodeURIComponent(
-      service ? `${service} — ${name}` : `Project brief from ${name}`,
-    );
-    const body = encodeURIComponent(
-      [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        company ? `Company: ${company}` : null,
-        service ? `Interest: ${service}` : null,
-        "",
-        message,
-      ]
-        .filter(Boolean)
-        .join("\n"),
-    );
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const payload = {
+      name: String(data.get("name") || "").trim(),
+      email: String(data.get("email") || "").trim(),
+      company: String(data.get("company") || "").trim(),
+      service: String(data.get("service") || "").trim(),
+      message: String(data.get("message") || "").trim(),
+    };
 
-    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
-    setStatus("sent");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(result.error || "Could not send your message.");
+      }
+
+      form.reset();
+      setStatus("sent");
+    } catch (err) {
+      setStatus("idle");
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Could not send your message. Please try again.",
+      );
+    }
   }
 
   if (status === "sent") {
@@ -46,17 +58,17 @@ export default function ContactForm({ defaultService = "" }) {
           Brief received
         </p>
         <h2 className="mt-4 font-[family-name:var(--font-display)] text-2xl font-bold text-ink">
-          Open your email client to send it.
+          Thanks — we got your message.
         </h2>
         <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">
-          If nothing opened, write us directly at{" "}
+          We reply within one business day at{" "}
           <a
             href={`mailto:${contact.email}`}
             className="font-semibold text-brand hover:text-brand-soft"
           >
             {contact.email}
           </a>
-          . We reply within one business day.
+          .
         </p>
         <button
           type="button"
@@ -81,6 +93,7 @@ export default function ContactForm({ defaultService = "" }) {
             autoComplete="name"
             placeholder="Your name"
             className={fieldClass}
+            disabled={status === "sending"}
           />
         </label>
         <label className="block text-sm font-medium text-ink">
@@ -92,6 +105,7 @@ export default function ContactForm({ defaultService = "" }) {
             autoComplete="email"
             placeholder="you@company.com"
             className={fieldClass}
+            disabled={status === "sending"}
           />
         </label>
       </div>
@@ -105,6 +119,7 @@ export default function ContactForm({ defaultService = "" }) {
             autoComplete="organization"
             placeholder="Optional"
             className={fieldClass}
+            disabled={status === "sending"}
           />
         </label>
         <label className="block text-sm font-medium text-ink">
@@ -113,6 +128,7 @@ export default function ContactForm({ defaultService = "" }) {
             name="service"
             defaultValue={defaultService}
             className={`${fieldClass} appearance-none`}
+            disabled={status === "sending"}
           >
             <option value="">Tell us in the note</option>
             {services.map((category) => (
@@ -137,14 +153,22 @@ export default function ContactForm({ defaultService = "" }) {
           rows={6}
           placeholder="A short brief is enough — goals, timeline, and anything already in motion."
           className={`${fieldClass} resize-y min-h-32`}
+          disabled={status === "sending"}
         />
       </label>
 
+      {error ? (
+        <p className="text-sm text-red-700" role="alert">
+          {error}
+        </p>
+      ) : null}
+
       <button
         type="submit"
-        className="inline-flex min-h-12 w-full items-center justify-center bg-brand px-6 text-sm font-semibold text-cream transition-colors hover:bg-brand-deep sm:w-auto"
+        disabled={status === "sending"}
+        className="inline-flex min-h-12 w-full items-center justify-center bg-brand px-6 text-sm font-semibold text-cream transition-colors hover:bg-brand-deep disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
       >
-        Send a brief
+        {status === "sending" ? "Sending…" : "Send a brief"}
       </button>
     </form>
   );

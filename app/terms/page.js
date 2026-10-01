@@ -1,12 +1,14 @@
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { buildPageMetadata } from "../data/site";
 
-export const metadata = {
-  title: "Terms and Conditions — CodeZeon-LLC",
+export const metadata = buildPageMetadata({
+  title: "Terms and Conditions",
   description:
     "Terms governing access to the Codezeon LLC website, services, communications, and projects arranged through Codezeon.",
-};
+  path: "/terms",
+});
 
 const sections = [
   {
@@ -438,7 +440,7 @@ const sections = [
         lines: [
           "Email: info@codezeon.com",
           "Website: https://codezeon.com",
-          "Business Address: 1334 Mile Post Drive",
+          "Business Address: CodeZeon LLC, 1334 Mile Post Drive, Georgia, USA.",
         ],
         email: "info@codezeon.com",
         website: "https://codezeon.com",

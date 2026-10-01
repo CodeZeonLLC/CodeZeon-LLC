@@ -4,12 +4,14 @@ import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
 import { contact } from "../data/contact";
 import { getService, getServiceOfferings } from "../data/services";
+import { buildPageMetadata } from "../data/site";
 
-export const metadata = {
-  title: "Contact — CodeZeon-LLC",
+export const metadata = buildPageMetadata({
+  title: "Contact",
   description:
-    "Tell CodeZeon-LLC about the product, brand, or risk you want to close. We respond within one business day.",
-};
+    "Contact CodeZeon about your next product, brand, or business system. Email info@codezeon.com — we respond within one business day.",
+  path: "/contact",
+});
 
 export default async function ContactPage({ searchParams }) {
   const params = await searchParams;
@@ -102,7 +104,7 @@ export default async function ContactPage({ searchParams }) {
                 </p>
                 <address className="mt-3 not-italic">
                   <p className="font-[family-name:var(--font-display)] text-base font-semibold text-brand">
-                    CodeZeon-LLC
+                    {contact.company}
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-muted">
                     {contact.addressLines.map((line) => (

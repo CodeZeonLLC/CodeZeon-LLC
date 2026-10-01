@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import { getService, services } from "../../data/services";
 import { whyChooseUs } from "../../data/whyChooseUs";
 import OfferingGrid from "../../components/OfferingGrid";
+import { buildPageMetadata } from "../../data/site";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -16,13 +17,15 @@ export async function generateMetadata({ params }) {
   const service = getService(slug);
 
   if (!service) {
-    return { title: "Service — CodeZeon-LLC" };
+    return { title: "Service" };
   }
 
-  return {
-    title: `${service.title} — CodeZeon-LLC`,
+  return buildPageMetadata({
+    title: service.title,
     description: service.short,
-  };
+    path: `/services/${service.slug}`,
+    image: service.image,
+  });
 }
 
 export default async function ServicePage({ params }) {

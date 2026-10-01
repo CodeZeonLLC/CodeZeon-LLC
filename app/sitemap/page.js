@@ -2,20 +2,21 @@ import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { services } from "../data/services";
+import { buildPageMetadata } from "../data/site";
 
-export const metadata = {
-  title: "Sitemap — CodeZeon-LLC",
+export const metadata = buildPageMetadata({
+  title: "Sitemap",
   description:
-    "A map of the CodeZeon-LLC website: home, services, contact, and legal pages.",
-};
+    "A map of the CodeZeon LLC website: home, about, services, contact, FAQ, and legal pages.",
+  path: "/sitemap",
+});
 
 const company = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/#services", label: "Services overview" },
+  { href: "/services", label: "Services" },
   { href: "/#approach", label: "Approach" },
-  { href: "/#contact", label: "Contact on the homepage" },
-  { href: "/contact", label: "Contact page" },
+  { href: "/contact", label: "Contact" },
   { href: "/faq", label: "FAQ" },
 ];
 

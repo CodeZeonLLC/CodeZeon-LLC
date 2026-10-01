@@ -3,29 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-const faqs = [
-  {
-    q: "How much does a project cost?",
-    a: "It depends on scope. After a short discovery call we send a fixed quote, so you know the price before we start.",
-  },
-  {
-    q: "How long does a typical build take?",
-    a: "Most builds land between a few weeks and a few months. Timeline depends on scope, feedback speed, and whether we are starting from scratch or extending what you already have.",
-  },
-  {
-    q: "Do you work with early-stage startups?",
-    a: "Yes. We help startups turn an idea into a functional digital product—focused on the smallest useful version that can ship and learn from real users.",
-  },
-  {
-    q: "Who owns the code and data?",
-    a: "You do. Project-specific deliverables and your data belong to you as set out in the project agreement. Our reusable tools and third-party licenses stay under their own terms.",
-  },
-  {
-    q: "Do you offer support after launch?",
-    a: "Yes. Support and maintenance can be included in the agreement—so you have a clear window for fixes, updates, and questions after go-live.",
-  },
-];
+import { faqIntro, faqItems } from "../data/faq";
 
 export default function HomeFaq() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -39,15 +17,22 @@ export default function HomeFaq() {
             data-reveal-child
             style={{ "--reveal-delay": 80 }}
           >
-            Questions we get asked
+            Frequently Asked Questions
           </h2>
+          <p
+            className="mt-4 max-w-lg text-base leading-relaxed text-muted"
+            data-reveal-child
+            style={{ "--reveal-delay": 110 }}
+          >
+            {faqIntro}
+          </p>
 
           <ul
             className="mt-10 border-t border-line"
             data-reveal-child
             style={{ "--reveal-delay": 140 }}
           >
-            {faqs.map((item, index) => {
+            {faqItems.map((item, index) => {
               const open = openIndex === index;
               return (
                 <li key={item.q} className="border-b border-line">

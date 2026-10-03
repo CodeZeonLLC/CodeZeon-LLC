@@ -6,7 +6,13 @@ export default function robots() {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: [
+          "/api/",
+          "/connect-with-us",
+          "/connect-with-us/",
+          "/qr",
+          "/qr/",
+        ],
       },
     ],
     sitemap: absoluteUrl("/sitemap.xml"),

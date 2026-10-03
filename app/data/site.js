@@ -45,6 +45,26 @@ export function buildPageMetadata({
     ? title
     : `${title} — ${site.shortName}`;
 
+  if (noIndex) {
+    return {
+      title,
+      description,
+      robots: {
+        index: false,
+        follow: false,
+        nocache: true,
+        googleBot: {
+          index: false,
+          follow: false,
+          noimageindex: true,
+          "max-snippet": 0,
+          "max-image-preview": "none",
+          "max-video-preview": 0,
+        },
+      },
+    };
+  }
+
   return {
     title,
     description,
@@ -72,8 +92,6 @@ export function buildPageMetadata({
       description,
       images: [absoluteUrl(image)],
     },
-    robots: noIndex
-      ? { index: false, follow: false }
-      : { index: true, follow: true },
+    robots: { index: true, follow: true },
   };
 }

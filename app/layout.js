@@ -1,6 +1,7 @@
 import { Syne, Manrope } from "next/font/google";
 import "./globals.css";
 import Motion from "./components/Motion";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 import { site } from "./data/site";
 
 const syne = Syne({
@@ -110,6 +111,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <WhatsAppFloat />
         <Motion />
       </body>
     </html>

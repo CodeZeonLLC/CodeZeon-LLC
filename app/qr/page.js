@@ -15,14 +15,14 @@ export default function QrPage() {
     <main className="min-h-full bg-[radial-gradient(circle_at_top,_#ffffff_0%,_var(--cream)_55%,_var(--cream-dim)_100%)]">
       <div className="mx-auto flex w-full max-w-2xl flex-col px-5 py-14 sm:px-8 sm:py-20">
         <div className="flex flex-col items-center text-center">
-          <div className="relative mb-8 h-14 w-40">
+          <div className="relative mb-8 h-24 w-[9.25rem]">
             <Image
-              src="/logo.png"
+              src="/codezeon-logo.png"
               alt={site.name}
               fill
               priority
               className="object-contain"
-              sizes="160px"
+              sizes="148px"
             />
           </div>
 

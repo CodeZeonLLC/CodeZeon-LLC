@@ -30,10 +30,10 @@ const principles = [
 const leaders = [
   {
     name: "Rej Rahman",
-    role: "Chief Executive Officer & President",
+    role: "President & Chief Executive Officer",
     image: "/raj_rehman.png",
     imageAlt: "Rej Rahman, Chief Executive Officer and President of CodeZeon",
-    bio: "A visionary technology leader with extensive experience in software development, digital transformation, and business strategy, Rej leads CodeZeon's global growth, client partnerships, and innovation initiatives. His leadership philosophy is centered on delivering measurable business value through exceptional engineering talent, trusted relationships, and operational excellence.",
+    bio: "A visionary technology leader with extensive experience in software development, digital transformation, and business strategy, Rej leads Codezeon's global growth, client partnerships, and innovation initiatives. His leadership philosophy is centered on delivering measurable business value through exceptional engineering talent, trusted relationships, and operational excellence.",
   },
 ];
 
@@ -45,14 +45,14 @@ export default function AboutPage() {
         <section className="relative min-h-[70svh] overflow-hidden bg-brand sm:min-h-[78svh]">
           <div className="absolute inset-0">
             <Image
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2400&q=80"
-              alt="Engineering team collaborating on digital products"
+              src="/about-us-hero-section.webp"
+              alt="Business people talking in a glass-walled meeting room"
               fill
               priority
               className="object-cover object-[center_35%]"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand/60 to-brand/35" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/85 via-brand/25 to-transparent" />
           </div>
 
           <div className="shell relative z-10 flex min-h-[70svh] flex-col justify-end pb-12 pt-28 sm:min-h-[78svh] sm:pb-16 sm:pt-32 lg:pb-20">
@@ -60,7 +60,7 @@ export default function AboutPage() {
               About Us
             </p>
             <p className="mt-4 font-[family-name:var(--font-display)] text-[clamp(2.5rem,10vw,5.5rem)] font-extrabold leading-[0.95] tracking-tight text-cream">
-              CodeZeon
+              Codezeon
             </p>
             <h1 className="mt-5 max-w-3xl font-[family-name:var(--font-display)] text-[clamp(1.5rem,5vw,2.75rem)] font-semibold leading-snug tracking-tight text-cream">
               Ambition Meets Engineering Discipline.
@@ -132,7 +132,7 @@ export default function AboutPage() {
               data-reveal-child
               style={{ "--reveal-delay": 80 }}
             >
-              Meet the leadership behind CodeZeon.
+              Meet the leadership behind Codezeon.
             </h2>
 
             <ul className="mt-14 space-y-16 lg:mt-16">
@@ -176,7 +176,7 @@ export default function AboutPage() {
               data-reveal-child
               style={{ "--reveal-delay": 0 }}
             >
-              Why Choose CodeZeon
+              Why Choose Codezeon
             </p>
             <h2
               className="mt-4 max-w-2xl font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight text-ink"

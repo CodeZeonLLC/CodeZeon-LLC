@@ -6,7 +6,7 @@ import { buildPageMetadata } from "../data/site";
 export const metadata = buildPageMetadata({
   title: "Terms and Conditions",
   description:
-    "Terms governing access to the Codezeon LLC website, services, communications, and projects arranged through Codezeon.",
+    "Terms governing access to the Codezeon website, services, communications, and projects arranged through Codezeon.",
   path: "/terms",
 });
 
@@ -16,7 +16,7 @@ const sections = [
     blocks: [
       {
         type: "p",
-        text: "Welcome to Codezeon LLC (“Codezeon,” “we,” “our,” or “us”).",
+        text: "Welcome to Codezeon (“Codezeon,” “we,” “our,” or “us”).",
       },
       {
         type: "p",
@@ -33,7 +33,7 @@ const sections = [
     blocks: [
       {
         type: "p",
-        text: "Codezeon LLC is a U.S.-based business providing technology-related services and digital solutions to businesses, organizations, and individuals.",
+        text: "Codezeon is a U.S.-based business providing technology-related services and digital solutions to businesses, organizations, and individuals.",
       },
       {
         type: "p",
@@ -58,15 +58,15 @@ const sections = [
     ],
   },
   {
-    title: "3. Global Partner in Bangladesh",
+    title: "3. Global Partner",
     blocks: [
       {
         type: "p",
-        text: "Codezeon works with Native Lessons as its Global Partner in Bangladesh.",
+        text: "Codezeon works with Native Lessons as its Global Partner.",
       },
       {
         type: "p",
-        text: "Through this partnership, Native Lessons may assist with local coordination, communications, project administration, vendor coordination, and other business activities in Bangladesh, as agreed between the parties.",
+        text: "Through this partnership, Native Lessons may assist with local coordination, communications, project administration, vendor coordination, and other business activities, as agreed between the parties.",
       },
       {
         type: "p",
@@ -436,18 +436,18 @@ const sections = [
       },
       {
         type: "contact",
-        name: "Codezeon LLC",
+        name: "Codezeon ",
         lines: [
           "Email: info@codezeon.com",
           "Website: https://codezeon.com",
-          "Business Address: CodeZeon LLC, 1334 Mile Post Drive, Georgia, USA.",
+          "Business Address: CodeZeon, 1334 Mile Post Drive, Georgia, USA.",
         ],
         email: "info@codezeon.com",
         website: "https://codezeon.com",
       },
       {
         type: "p",
-        text: "Global Partner in Bangladesh:",
+        text: "Global Partner:",
       },
       {
         type: "contact",
@@ -580,7 +580,7 @@ export default function TermsPage() {
             </h1>
             <div className="mt-5 h-px w-16 bg-cream/70 sm:w-24" />
             <p className="mt-6 max-w-xl text-sm leading-relaxed text-cream/80 sm:text-base">
-              Terms governing use of the Codezeon LLC website, services,
+              Terms governing use of the Codezeon website, services,
               communications, and projects.
             </p>
             <p className="mt-4 text-sm text-cream/60">

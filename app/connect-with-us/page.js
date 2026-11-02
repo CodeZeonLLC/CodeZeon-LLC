@@ -13,14 +13,14 @@ import { buildPageMetadata, site } from "../data/site";
 export const metadata = buildPageMetadata({
   title: "Connect With Us",
   description:
-    "Connect with CodeZeon LLC — contact details, WhatsApp, and social channels in one place.",
+    "Connect with Codezeon — contact details, WhatsApp, and social channels in one place.",
   path: "/connect-with-us",
   noIndex: true,
 });
 
 export default function ConnectPage() {
   const iconChannels = connectChannels.filter((item) =>
-    ["website", "whatsapp", "linkedin", "x", "github", "email", "call"].includes(
+    ["website", "whatsapp", "facebook", "linkedin", "email", "call"].includes(
       item.kind,
     ),
   );
@@ -29,14 +29,14 @@ export default function ConnectPage() {
     <main className="min-h-full bg-[radial-gradient(circle_at_top,_#ffffff_0%,_var(--cream)_55%,_var(--cream-dim)_100%)]">
       <div className="mx-auto flex w-full max-w-3xl flex-col px-5 py-14 sm:px-8 sm:py-20">
         <div className="flex flex-col items-center text-center">
-          <Link href="/" className="relative mb-8 block h-14 w-40">
+          <Link href="/" className="relative mb-8 block h-24 w-[9.25rem]">
             <Image
-              src="/logo.png"
+              src="/codezeon-logo.png"
               alt={site.name}
               fill
               priority
               className="object-contain"
-              sizes="160px"
+              sizes="148px"
             />
           </Link>
 

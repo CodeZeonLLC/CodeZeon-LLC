@@ -1,12 +1,12 @@
 export const site = {
-  name: "CodeZeon LLC",
-  shortName: "CodeZeon",
+  name: "Codezeon",
+  shortName: "Codezeon",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://codezeon.com",
   locale: "en_US",
   description:
-    "CodeZeon is a technology and design agency based in Georgia, USA. We build creative digital experiences and business technology systems that drive measurable outcomes.",
+    "Codezeon is a technology and design agency based in Georgia, USA. We build creative digital experiences and business technology systems that drive measurable outcomes.",
   keywords: [
-    "CodeZeon",
+    "Codezeon",
     "software development",
     "web design",
     "mobile app development",
@@ -19,7 +19,7 @@ export const site = {
   ],
   email: "info@codezeon.com",
   phone: "+16789796504",
-  ogImage: "/logo.png",
+  ogImage: "/og-image.png",
 };
 
 export function absoluteUrl(path = "/") {

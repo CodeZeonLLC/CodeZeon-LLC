@@ -3,6 +3,7 @@ import "./globals.css";
 import Motion from "./components/Motion";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 import { site } from "./data/site";
+import { social } from "./data/social";
 
 const syne = localFont({
   src: "./fonts/syne-latin.woff2",
@@ -71,8 +72,8 @@ export const metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/favicon.ico" }, { url: "/logo.png", type: "image/png" }],
-    apple: [{ url: "/logo.png" }],
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/icon.png" }],
   },
 };
 
@@ -89,7 +90,7 @@ export default function RootLayout({ children }) {
     "@type": "Organization",
     name: site.name,
     url: site.url,
-    logo: `${site.url}/logo.png`,
+    logo: `${site.url}/codezeon-logo.png`,
     email: site.email,
     telephone: site.phone,
     address: {
@@ -98,7 +99,7 @@ export default function RootLayout({ children }) {
       addressRegion: "GA",
       addressCountry: "US",
     },
-    sameAs: [],
+    sameAs: social.map((item) => item.href),
   };
 
   return (

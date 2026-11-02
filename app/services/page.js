@@ -20,14 +20,14 @@ export default function ServicesPage() {
         <section className="relative min-h-[56svh] overflow-hidden bg-brand sm:min-h-[60svh]">
           <div className="absolute inset-0">
             <Image
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2400&q=80"
-              alt="Quiet studio workspace representing considered delivery"
+              src="/service-section-hero.webp"
+              alt="Hand holding a stylus over a drawing tablet"
               fill
               priority
-              className="object-cover object-[center_35%]"
+              className="object-cover object-[center_45%]"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand/55 to-brand/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/85 via-brand/25 to-transparent" />
           </div>
 
           <div className="shell relative z-10 flex min-h-[56svh] flex-col justify-end pb-12 pt-28 sm:min-h-[60svh] sm:pb-16 sm:pt-32 lg:pb-20">

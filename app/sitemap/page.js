@@ -7,7 +7,7 @@ import { buildPageMetadata } from "../data/site";
 export const metadata = buildPageMetadata({
   title: "Sitemap",
   description:
-    "A map of the CodeZeon LLC website: home, about, services, contact, FAQ, and legal pages.",
+    "A map of the Codezeon website: home, about, services, contact, FAQ, and legal pages.",
   path: "/sitemap",
 });
 
@@ -41,7 +41,7 @@ export default function SitemapPage() {
             </h1>
             <div className="mt-5 h-px w-16 bg-cream/70 sm:w-24" />
             <p className="mt-6 max-w-xl text-sm leading-relaxed text-cream/80 sm:text-base">
-              Use this list to move through CodeZeon-LLC without hunting through
+              Use this list to move through Codezeon without hunting through
               the menu.
             </p>
           </div>

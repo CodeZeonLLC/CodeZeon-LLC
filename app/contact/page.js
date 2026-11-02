@@ -9,7 +9,7 @@ import { buildPageMetadata } from "../data/site";
 export const metadata = buildPageMetadata({
   title: "Contact",
   description:
-    "Contact CodeZeon about your next product, brand, or business system. Email info@codezeon.com — we respond within one business day.",
+    "Contact Codezeon about your next product, brand, or business system. Email info@codezeon.com — we respond within one business day.",
   path: "/contact",
 });
 
@@ -29,14 +29,14 @@ export default async function ContactPage({ searchParams }) {
         <section className="relative min-h-[56svh] overflow-hidden bg-brand sm:min-h-[60svh]">
           <div className="absolute inset-0">
             <Image
-              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2400&q=80"
-              alt="Team in conversation around a table"
+              src="/contact-us-hero-image.webp"
+              alt="Two people shaking hands across a desk"
               fill
               priority
               className="object-cover object-[center_40%]"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand/55 to-brand/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/85 via-brand/25 to-transparent" />
           </div>
 
           <div className="shell relative z-10 flex min-h-[56svh] flex-col justify-end pb-12 pt-28 sm:min-h-[60svh] sm:pb-16 sm:pt-32 lg:pb-20">

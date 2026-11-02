@@ -54,15 +54,15 @@ export default function Header({ variant = "overlay" }) {
         <Link
           href="/"
           onClick={closeMenu}
-          className="relative block h-11 w-[7.5rem] shrink-0 sm:h-12 sm:w-36"
+          className="relative block h-12 w-[4.75rem] shrink-0 sm:h-14 sm:w-[5.5rem]"
         >
           <Image
-            src="/logo-white.png"
-            alt="CodeZeon LLC"
+            src="/codezeon-logo-white.png"
+            alt="Codezeon"
             fill
             priority
-            className="object-contain object-left mix-blend-screen"
-            sizes="144px"
+            className="object-contain object-left"
+            sizes="88px"
           />
         </Link>
 

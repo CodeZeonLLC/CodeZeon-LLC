@@ -64,7 +64,7 @@ export default function ConnectQrCard() {
         {previewSrc ? (
           <img
             src={previewSrc}
-            alt="QR code linking to CodeZeon Connect With Us"
+            alt="QR code linking to Codezeon Connect With Us"
             width={480}
             height={480}
             className="mx-auto h-auto w-full max-w-[20rem] bg-white"

@@ -1,10 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import { contact } from "../data/contact";
 
 export default function Contact() {
   return (
     <section id="contact" className="bg-cream py-24 lg:py-32" data-reveal>
-      <div className="shell">
+      <div className="shell grid items-center gap-14 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:gap-16">
         <div className="max-w-4xl">
           <h2
             className="font-[family-name:var(--font-display)] text-[clamp(2.5rem,10vw,5.5rem)] font-extrabold leading-[0.95] tracking-tight text-ink"
@@ -37,6 +38,21 @@ export default function Contact() {
               {contact.email}
             </a>
           </div>
+        </div>
+
+        <div
+          className="flex justify-center lg:justify-end"
+          data-reveal-child
+          style={{ "--reveal-delay": 220 }}
+        >
+          <Image
+            src="/have-an-idea.webp"
+            alt="Illustration of a person juggling flying sheets of paper"
+            width={400}
+            height={318}
+            className="h-auto w-full max-w-[18rem] sm:max-w-[22rem] lg:max-w-[25rem]"
+            sizes="(min-width: 1024px) 400px, (min-width: 640px) 352px, 288px"
+          />
         </div>
       </div>
     </section>

@@ -6,7 +6,7 @@ import { buildPageMetadata } from "../data/site";
 export const metadata = buildPageMetadata({
   title: "Privacy Policy",
   description:
-    "How Codezeon LLC collects, uses, discloses, stores, and protects personal information when you visit our website, contact us, or work with us.",
+    "How Codezeon collects, uses, discloses, stores, and protects personal information when you visit our website, contact us, or work with us.",
   path: "/privacy",
 });
 
@@ -16,7 +16,7 @@ const sections = [
     blocks: [
       {
         type: "p",
-        text: "Codezeon LLC (“Codezeon,” “we,” “our,” or “us”) respects your privacy and is committed to handling personal information responsibly.",
+        text: "Codezeon (“Codezeon,” “we,” “our,” or “us”) respects your privacy and is committed to handling personal information responsibly.",
       },
       {
         type: "p",
@@ -33,11 +33,11 @@ const sections = [
     blocks: [
       {
         type: "p",
-        text: "Codezeon LLC is a U.S.-based technology services business.",
+        text: "Codezeon is a U.S.-based technology services business.",
       },
       {
         type: "p",
-        text: "We work with clients, vendors, independent professionals, and international partners, including Native Lessons, our Global Partner in Bangladesh.",
+        text: "We work with clients, vendors, independent professionals, and international partners, including Native Lessons, our Global Partner .",
       },
       {
         type: "p",
@@ -227,7 +227,7 @@ const sections = [
       },
       {
         type: "p",
-        text: "Native Lessons and other authorized partners may receive information necessary to coordinate projects, communications, or business activities in Bangladesh.",
+        text: "Native Lessons and other authorized partners may receive information necessary to coordinate projects, communications, or business activities.",
       },
       {
         type: "h3",
@@ -418,19 +418,19 @@ const sections = [
       },
       {
         type: "contact",
-        name: "Codezeon LLC",
+        name: "Codezeon",
         lines: [
           "Privacy Contact: Privacy Team",
           "Email: info@codezeon.com",
           "Website: https://codezeon.com",
-          "Business Address: CodeZeon LLC, 1334 Mile Post Drive, Georgia, USA.",
+          "Business Address: CodeZeon, 1334 Mile Post Drive, Georgia, USA.",
         ],
         email: "info@codezeon.com",
         website: "https://codezeon.com",
       },
       {
         type: "p",
-        text: "Global Partner in Bangladesh:",
+        text: "Global Partner :",
       },
       {
         type: "contact",
@@ -574,7 +574,7 @@ export default function PrivacyPage() {
             </h1>
             <div className="mt-5 h-px w-16 bg-cream/70 sm:w-24" />
             <p className="mt-6 max-w-xl text-sm leading-relaxed text-cream/80 sm:text-base">
-              How Codezeon LLC collects, uses, discloses, stores, and protects
+              How Codezeon collects, uses, discloses, stores, and protects
               personal information.
             </p>
             <p className="mt-4 text-sm text-cream/60">

@@ -80,7 +80,7 @@ export async function POST(request) {
       .join("\n");
 
     await transporter.sendMail({
-      from: `"CodeZeon Website" <${from}>`,
+      from: `"Codezeon Website" <${from}>`,
       to,
       replyTo: email,
       subject,

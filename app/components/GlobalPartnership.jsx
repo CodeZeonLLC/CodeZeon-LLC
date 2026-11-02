@@ -30,7 +30,7 @@ export default function GlobalPartnership() {
             style={{ "--reveal-delay": 140 }}
           >
             Codezeon operates from Georgia, USA, backed by our strategic global
-            partner in Bangladesh, Native Lessons. This integrated partnership
+            partner, Native Lessons IT. This integrated partnership
             allows us to provide round-the-clock development cycles, cost-effective
             scaling, and accelerated project delivery without compromising on
             engineering standards.
@@ -54,19 +54,20 @@ export default function GlobalPartnership() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cream/50">
             Strategic global partner
           </p>
-          <div className="flex w-full max-w-sm items-center justify-center bg-cream px-8 py-10 sm:px-10 sm:py-12">
+          <div className="flex w-full max-w-sm items-center justify-center bg-white px-6 py-8 sm:px-8 sm:py-10">
             <Image
-              src="/global-partner.png"
-              alt="Native Lessons logo"
-              width={420}
-              height={180}
-              className="h-auto w-full max-w-[16rem] object-contain sm:max-w-[18rem]"
+              src="/native-lessons-it.png"
+              alt="Native Lessons IT logo"
+              width={1463}
+              height={699}
+              className="h-auto w-full max-w-[18rem] object-contain sm:max-w-[20rem]"
+              sizes="320px"
             />
           </div>
           <p className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight text-cream">
-            Native Lessons
+            Native Lessons IT
           </p>
-          <p className="text-sm text-cream/60">Bangladesh</p>
+          {/* <p className="text-sm text-cream/60">Bangladesh</p> */}
         </div>
       </div>
     </section>

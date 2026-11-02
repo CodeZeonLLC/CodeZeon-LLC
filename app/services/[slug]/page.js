@@ -117,7 +117,7 @@ export default async function ServicePage({ params }) {
         <section className="border-t border-line bg-cream-dim py-16">
           <div className="shell">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
-              More from CodeZeon
+              More from Codezeon
             </p>
             <ul className="mt-8 grid gap-8 sm:grid-cols-2">
               {others.map((item) => (

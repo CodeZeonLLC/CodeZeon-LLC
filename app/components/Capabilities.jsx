@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { services } from "../data/services";
 
@@ -12,13 +13,23 @@ export default function Capabilities() {
   return (
     <section id="services" className="bg-cream py-24 lg:py-32" data-reveal>
       <div className="shell">
-        <p
-          className="text-sm font-semibold uppercase tracking-[0.2em] text-muted"
+        <div
+          className="inline-flex flex-col items-center gap-3"
           data-reveal-child
           style={{ "--reveal-delay": 0 }}
         >
-          Services
-        </p>
+          <Image
+            src="/sevices.svg"
+            alt=""
+            width={40}
+            height={40}
+            unoptimized
+            className="h-10 w-10"
+          />
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
+            Services
+          </p>
+        </div>
         <h2
           className="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-ink sm:text-4xl md:text-5xl"
           data-reveal-child

@@ -5,27 +5,37 @@ export default function Approach() {
     <section id="approach" className="bg-brand text-cream" data-reveal>
       <div className="shell grid lg:min-h-[560px] lg:grid-cols-2 lg:gap-16">
         <div
-          className="relative aspect-[16/10] min-h-0 sm:aspect-auto sm:min-h-[280px] lg:h-full lg:min-h-0"
+          className="relative mt-14 aspect-[441/572] w-full max-w-sm sm:mt-20 sm:max-w-md lg:mt-0 lg:aspect-auto lg:h-full lg:max-w-none"
           data-reveal-child
           style={{ "--reveal-delay": 0 }}
         >
           <Image
-            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"
-            alt="Circuit board close-up representing precise engineering"
+            src="/approach.webp"
+            alt="Two people shaking hands over printed business charts"
             fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover object-[center_40%]"
+            sizes="(min-width: 1024px) 50vw, 448px"
           />
         </div>
 
         <div className="flex min-w-0 flex-col justify-center py-14 sm:py-20 lg:py-28">
-          <p
-            className="text-sm font-semibold uppercase tracking-[0.2em] text-cream/60"
+          <div
+            className="inline-flex flex-col items-center gap-3 self-start"
             data-reveal-child
             style={{ "--reveal-delay": 80 }}
           >
-            Approach
-          </p>
+            <Image
+              src="/approach-icon.svg"
+              alt=""
+              width={40}
+              height={40}
+              unoptimized
+              className="h-10 w-10"
+            />
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cream/60">
+              Approach
+            </p>
+          </div>
           <h2
             className="mt-4 max-w-xl font-[family-name:var(--font-display)] text-[clamp(1.5rem,6.5vw,2.25rem)] font-bold leading-tight tracking-tight text-pretty sm:text-4xl sm:leading-snug"
             data-reveal-child
@@ -38,7 +48,7 @@ export default function Approach() {
             data-reveal-child
             style={{ "--reveal-delay": 200 }}
           >
-            CodeZeon-LLC partners as an embedded engineering team. We define the
+            Codezeon partners as an embedded engineering team. We define the
             problem tightly, ship in short cycles, and leave systems your team
             can own with confidence.
           </p>

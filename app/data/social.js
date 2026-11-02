@@ -1,14 +1,10 @@
 export const social = [
   {
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61595571642005",
+  },
+  {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/company/codezeon-llc",
-  },
-  {
-    label: "X",
-    href: "https://x.com/codezeon",
-  },
-  {
-    label: "GitHub",
-    href: "https://github.com/codezeon",
+    href: "https://www.linkedin.com/company/codezeon/",
   },
 ];

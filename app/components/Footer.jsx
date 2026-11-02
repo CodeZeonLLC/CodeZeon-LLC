@@ -46,7 +46,7 @@ export default function Footer() {
               Software, design, security, and counsel for teams that need
               technology to serve the business.
             </p>
-            {/* <ul className="mt-6 flex items-center gap-3">
+            <ul className="mt-6 flex items-center gap-3">
               {social.map((item) => (
                 <li key={item.href}>
                   <a
@@ -60,7 +60,7 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
-            </ul> */}
+            </ul>
           </div>
 
           <div>

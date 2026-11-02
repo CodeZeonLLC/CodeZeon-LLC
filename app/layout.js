@@ -1,19 +1,21 @@
-import { Syne, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Motion from "./components/Motion";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 import { site } from "./data/site";
 
-const syne = Syne({
+const syne = localFont({
+  src: "./fonts/syne-latin.woff2",
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: "500 800",
+  display: "swap",
 });
 
-const manrope = Manrope({
+const manrope = localFont({
+  src: "./fonts/manrope-latin.woff2",
   variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "400 700",
+  display: "swap",
 });
 
 export const metadata = {
@@ -105,7 +107,10 @@ export default function RootLayout({ children }) {
       className={`${syne.variable} ${manrope.variable} h-full`}
       data-scroll-behavior="smooth"
     >
-      <body className="min-h-full flex flex-col antialiased">
+      <body
+        className="min-h-full flex flex-col antialiased"
+        suppressHydrationWarning
+      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

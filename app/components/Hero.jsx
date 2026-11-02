@@ -22,14 +22,14 @@ export default function Hero() {
         <div className="hero-content w-full">
           <p className="hero-heading animate-rise font-[family-name:var(--font-display)] font-extrabold tracking-tight text-cream">
             <span className="block sm:inline">CodeZeon</span>
-            <span className="sm:whitespace-nowrap">{"\u2011"}LLC</span>
+            {/* <span className="sm:whitespace-nowrap">{"\u2011"}LLC</span> */}
           </p>
           <div className="animate-draw mt-4 h-px w-16 bg-cream/70 sm:mt-5 sm:w-24" />
           <h1 className="animate-rise delay-1 mt-5 font-[family-name:var(--font-display)] text-[clamp(1.25rem,2.4vw,2.25rem)] font-semibold leading-snug tracking-tight text-pretty text-cream sm:mt-8">
             Software, design, and security built around your goals.
           </h1>
           <p className="animate-rise delay-2 mt-4 text-sm leading-relaxed text-cream/80 sm:mt-5 sm:text-base md:text-lg">
-            CodeZeon-LLC helps teams ship custom systems, clearer digital
+            CodeZeon helps teams ship custom systems, clearer digital
             experiences, and practical protection—without forcing a generic mold.
           </p>
           <div className="animate-rise delay-3 mt-7 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap">
